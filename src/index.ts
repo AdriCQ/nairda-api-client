@@ -2,6 +2,8 @@ import { AxiosInstance } from 'axios';
 
 import { csrfToken } from './services/csrf';
 import { ImageService } from './services/image';
+import { ShopOfferService } from './services/shopOffer';
+import { ShopOrderService } from './services/shopOrder';
 import { ShopStoreService } from './services/shopStore';
 import { UserServices } from './services/user';
 /**
@@ -19,16 +21,24 @@ export default function NairdaApi(api: AxiosInstance) {
    */
   const Image = new ImageService(api);
   /**
-   * UserServices Instance
+   * ShopOrder
    */
-  const User = new UserServices(api);
+  const ShopOrder = new ShopOrderService(api);
+  /**
+   * ShopOffer
+   */
+  const ShopOffer = new ShopOfferService(api);
   /** 
    * Shop Store Service
    */
   const ShopStore = new ShopStoreService(api);
+  /**
+   * UserServices Instance
+   */
+  const User = new UserServices(api);
 
   return {
-    CsrfToken, Image, ShopStore, User
+    CsrfToken, Image, ShopOffer, ShopOrder, ShopStore, User
   }
 }
 /**
@@ -38,7 +48,10 @@ export default function NairdaApi(api: AxiosInstance) {
  */
 export * from './services/csrf';
 export * from './services/image';
+export * from './services/shopOrder';
+export * from './services/shopOffer';
 export * from './services/shopStore';
+export * from './services/user';
 
 /**
  * -----------------------------------------
@@ -49,5 +62,7 @@ export * from './services/shopStore';
 export * from './types/image';
 export * from './types/mapPosition';
 export * from './types/responses';
+export * from './types/shopOffer';
+export * from './types/shopOrder';
 export * from './types/shopStore';
 export * from './types/user';
