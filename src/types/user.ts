@@ -1,0 +1,43 @@
+/**
+* @interface Profile
+*/
+export type IUserProfile = {
+  readonly id: number;
+  readonly first_name: string;
+  readonly last_name: string;
+  readonly email: string;
+  readonly phone?: string;
+  readonly address?: string;
+  readonly avatar: string;
+}
+/**
+ * -----------------------------------------
+ *	HTTP
+ * -----------------------------------------
+ */
+/**
+ * 
+ */
+export type IUserAuthLoginRequest = {
+  readonly email: string;
+  readonly password: string;
+  readonly service_name: string;
+};
+/**
+ * 
+ */
+export type IUserAuthRegisterRequest = {
+  readonly service_name: string;
+  readonly first_name: string;
+  readonly last_name: string;
+  readonly email: string;
+  readonly password: string;
+  readonly password_confirmation: string;
+}
+/**
+ * 
+ */
+export type IUserAuthResponse = {
+  readonly data: IUserProfile;
+  readonly api_token: string;
+};

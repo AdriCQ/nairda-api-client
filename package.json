@@ -1,13 +1,17 @@
 {
   "name": "nairda-api-client",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Nairda API Client",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/AdriCQ/nairda-api-client",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "nairda",
+    "api",
+    "typescript"
+  ],
   "scripts": {
     "build": "run-p build:*",
     "build:main": "tsc -p tsconfig.json",
@@ -40,7 +44,9 @@
   "engines": {
     "node": ">=10"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.26.0"
+  },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
