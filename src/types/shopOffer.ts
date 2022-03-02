@@ -45,5 +45,9 @@ export type IShopOfferCreateRequest = {
   readonly stock_qty: number;
   readonly sell_price: number;
   readonly vendor_price: number;
-  readonly shop_store_id: number;
+  readonly store_id: number;
 }
+/**
+ * IShopOfferUpdateRequest
+ */
+export type IShopOfferUpdateRequest = Omit<Partial<IShopOffer>, 'id' | 'rating'> & { onsale: boolean };

@@ -32,8 +32,15 @@ export type IShopOrder = {
  * IShopOrderCreateRequest
  */
 export type IShopOrderCreateRequest = {
-  readonly shop_store_id: number,
+  readonly store_id: number,
   readonly delivery_time: string;
-  readonly order_offers: IShopOrderOffer[];
-  readonly map_position: Exclude<IMapPosition, 'id'>;
+  readonly order_offers: Array<{ readonly offer_id: number; readonly qty: number; }>;
+  readonly map_position: Omit<IMapPosition, 'id' | 'title'>;
+}
+/**
+ * IShopOrderUpdateRequest
+ */
+export type IShopOrderUpdateRequest = {
+  readonly delivery_time: string;
+  readonly status: IShopOrderStatus;
 }

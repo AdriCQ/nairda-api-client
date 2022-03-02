@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
 
 import { Paginated } from '..';
-import { IShopOrder, IShopOrderCreateRequest } from '../types/shopOrder';
+import { IShopOrder, IShopOrderCreateRequest, IShopOrderUpdateRequest } from '../types/shopOrder';
 /**
  * ShopOrderService
  */
@@ -56,7 +56,7 @@ export class ShopOrderService {
    * @param update Partial<IShopOrder>
    * @returns 
    */
-  async updateStatus(offerId: number, update: Partial<IShopOrder>) {
+  async updateStatus(offerId: number, update: IShopOrderUpdateRequest) {
     return this.api.patch<IShopOrder>(`/api/shop/offers/${offerId}`, update);
   }
 }

@@ -8,7 +8,6 @@ export type IUserProfile = {
   readonly email: string;
   readonly phone?: string;
   readonly address?: string;
-  readonly avatar: string;
 }
 /**
  * -----------------------------------------

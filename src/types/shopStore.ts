@@ -24,7 +24,7 @@ export type IShopStore = {
 export type IShopStoreCreateRequest = {
   readonly title: string;
   readonly description: string;
-  readonly map_position: Exclude<IMapPosition, 'id'>;
+  readonly map_position: Omit<IMapPosition, 'id'>;
   readonly open?: boolean;
 }
 /**
