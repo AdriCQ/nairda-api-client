@@ -22,7 +22,6 @@ export class UserServices {
   }
   /**
    * profile
-   * @returns AxiosPromise<IUserProfile>
    */
   async profile() {
     return this.api.get<IUserProfile>('/api/users/profile');
@@ -30,10 +29,9 @@ export class UserServices {
   /**
    * register
    * @param profile IUserAuthRegisterRequest
-   * @returns Promise
    */
   async register(profile: IUserAuthRegisterRequest) {
     await csrfToken(this.api);
-    return await this.api.post<IUserAuthResponse>('/api/users/register', profile);
+    return this.api.post<IUserAuthResponse>('/api/users/register', profile);
   }
 }

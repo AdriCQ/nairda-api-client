@@ -36,15 +36,19 @@ export class ShopStoreService {
    * @param storeId number
    * @returns AxiosPromise<IShopStore>
    */
-  async find(storeId: number) {
-    return this.api.get<IShopStore>(`/api/shop/stores/${storeId}`);
+  async find(storeId: number, asVendor = false) {
+    return asVendor
+      ? this.api.get<IShopStore>(`/api/shop/stores/vendor/${storeId}`)
+      : this.api.get<IShopStore>(`/api/shop/stores/${storeId}`);
   }
   /**
    * list
    * @returns AxiosPromise<Paginated<IShopStore>>
    */
-  async list() {
-    return this.api.get<Paginated<IShopStore>>('/api/shop/stores');
+  async list(asVendor = false) {
+    return asVendor
+      ? this.api.get<Paginated<IShopStore>>('/api/shop/stores/vendor')
+      : this.api.get<Paginated<IShopStore>>('/api/shop/stores');
   }
   /**
    * update

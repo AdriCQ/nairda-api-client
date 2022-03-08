@@ -14,7 +14,6 @@ export class ShopOrderService {
   /**
    * create
    * @param create IShopOrderCreateRequest
-   * @returns 
    */
   async create(create: IShopOrderCreateRequest) {
     return this.api.post<IShopOrder>('/api/shop/orders', create);
@@ -22,7 +21,6 @@ export class ShopOrderService {
   /**
   * destroy
   * @param orderId number
-  * @returns 
   */
   async destroy(orderId: number) {
     return this.api.delete<boolean>(`/api/shop/orders/${orderId}`);
@@ -30,14 +28,12 @@ export class ShopOrderService {
   /**
    * find
    * @param orderId number
-   * @returns AxiosPromise<IShopOffer>
    */
   async find(orderId: number) {
     return this.api.get<IShopOrder>(`/api/shop/orders/${orderId}`);
   }
   /**
    * list
-   * @returns AxiosPromise<Paginated<IShopOffer>>
    */
   async list() {
     return this.api.get<Paginated<IShopOrder>>('/api/shop/orders');
@@ -45,7 +41,6 @@ export class ShopOrderService {
   /**
    * listByStore
    * @param storeId number
-   * @returns 
    */
   async listByStore(storeId: number) {
     return this.api.get<Paginated<IShopOrder>>(`/api/shop/orders/store/${storeId}`);
@@ -54,7 +49,6 @@ export class ShopOrderService {
    * update
    * @param offerId number
    * @param update Partial<IShopOrder>
-   * @returns 
    */
   async updateStatus(offerId: number, update: IShopOrderUpdateRequest) {
     return this.api.patch<IShopOrder>(`/api/shop/offers/${offerId}`, update);

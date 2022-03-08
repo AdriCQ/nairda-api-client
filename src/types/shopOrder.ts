@@ -6,7 +6,7 @@ import { IShopOfferMin } from './shopOffer';
 export type IShopOrderOffer = {
   readonly qty: number;
   readonly shop_offer_id?: number;
-  readonly offer: IShopOfferMin
+  readonly offer?: IShopOfferMin
 }
 /**
  * IShopOrderStatus

@@ -1,4 +1,4 @@
-import { AxiosInstance } from 'axios';
+import { AxiosInstance, AxiosResponse } from 'axios';
 
 import { Paginated } from '..';
 import { IShopOffer, IShopOfferCreateRequest, IShopOfferUpdateRequest } from '../types/shopOffer';
@@ -15,7 +15,6 @@ export class ShopOfferService {
   /**
    * create
    * @param createRequest IShopOfferCreateRequest
-   * @returns 
    */
   async create(createRequest: IShopOfferCreateRequest) {
     return this.api.post<IShopOffer>('/api/shop/offers', createRequest);
@@ -23,7 +22,6 @@ export class ShopOfferService {
   /**
    * destroy
    * @param offerId number
-   * @returns 
    */
   async destroy(offerId: number) {
     return this.api.delete<boolean>(`/api/shop/offers/${offerId}`);
@@ -31,14 +29,12 @@ export class ShopOfferService {
   /**
    * find
    * @param offerId number
-   * @returns AxiosPromise<IShopOffer>
    */
   async find(offerId: number) {
-    return await this.api.get<IShopOffer>(`/api/shop/offers/${offerId}`);
+    return this.api.get<IShopOffer>(`/api/shop/offers/${offerId}`);
   }
   /**
    * list
-   * @returns AxiosPromise<Paginated<IShopOffer>>
    */
   async list() {
     return this.api.get<Paginated<IShopOffer>>('/api/shop/offers');
@@ -47,9 +43,8 @@ export class ShopOfferService {
    * update
    * @param offerId number
    * @param update Partial<IShopOffer>
-   * @returns 
    */
   async update(offerId: number, update: IShopOfferUpdateRequest) {
-    return this.api.patch<IShopOffer>(`/api/shop/offers/${offerId}`, update);
+    return this.api.patch<IShopOffer, AxiosResponse<IShopOffer>>(`/api/shop/offers/${offerId}`, update);
   }
 }
