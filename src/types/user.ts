@@ -20,6 +20,7 @@ export type IUserProfile = {
 export type IUserAuthLoginRequest = {
   readonly email: string;
   readonly password: string;
+  readonly auth_mode?: 'user' | 'admin' | 'shop_vendor' | 'transport_driver';
   readonly service_name: string;
 };
 /**

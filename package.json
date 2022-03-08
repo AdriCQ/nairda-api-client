@@ -1,5 +1,6 @@
 {
   "name": "nairda-api-client",
+  "author": "AdriCQ <adrian.capote95@zoho.com>",
   "version": "0.0.1",
   "description": "Nairda API Client",
   "main": "build/main/index.js",

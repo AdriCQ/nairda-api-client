@@ -15,7 +15,8 @@ export function UserTest(api: AxiosInstance) {
       console.log('Success User auth-login', (await $user.login({
         email: 'info@nairda.net',
         password: 'password',
-        service_name: 'ApiTest'
+        service_name: 'ApiTest',
+        auth_mode: 'user'
       })).data);
     } catch (error) {
       console.log('Error User auth-login', error);
