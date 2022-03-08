@@ -10,6 +10,7 @@ export type IShopStore = {
   readonly description: string;
   readonly image: IImage;
   readonly map_position: IMapPosition;
+  readonly rating: number;
 }
 
 /**
